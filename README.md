@@ -1,7 +1,7 @@
-<!-- Styled Resume with simple animation -->
+<!-- Styled Resume with simple fade-in animation -->
 
 <style>
-  /* Basic fade-in animation for the entire resume */
+  /* Fade-in animation */
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -38,11 +38,11 @@
   }
 </style>
 
-# Your Name
+# Hiroshi
 
 **React & Node.js Developer**  
-Email: your.email@example.com | Phone: (123) 456-7890  
-[LinkedIn](https://linkedin.com/in/yourprofile) | [GitHub](https://github.com/yourusername) | [Portfolio](https://yourportfolio.com)
+Email: hiroshi@example.com | Phone: (123) 456-7890  
+[LinkedIn](https://linkedin.com/in/hiroshi) | [GitHub](https://github.com/hiroshi) | [Portfolio](https://hiroshi-portfolio.com)
 
 ---
 
