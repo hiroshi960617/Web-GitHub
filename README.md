@@ -1,185 +1,183 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![Apache License 2.0][license-shield]][license-url]
-[![Discord][discord-shield]][discord-url]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resume - Full-Stack Developer</title>
+<!-- Google Fonts for a modern look -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  /* Reset and base styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-<br />
-<div align="center">
-  <a href="https://civitai.com/">
-    <img src="media/logo.png" alt="Civitai Logo" width="120" height="auto">
-  </a>
-</div>
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f0f0f;
+    color: #eee;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    /* Light glow effect on sides */
+    box-shadow: inset 0 0 50px rgba(0, 255, 255, 0.2),
+                inset 0 0 50px rgba(255, 0, 255, 0.2),
+                0 0 30px rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+  }
 
-## Table of Contents
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #00ffff;
+    text-align: center;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease-out;
+  }
 
-- [About the Project](#about-the-project)
-    - [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-    - [Altering your user](#altering-your-user)
-    - [Known limitations](#known-limitations)
-- [Contributing](#contributing)
-    - [Data Migrations](#data-migrations)
-- [Sponsors](#sponsors)
-- [License](#license)
+  h2 {
+    font-size: 1.8em;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #ff00ff;
+    border-bottom: 2px solid #ff00ff;
+    display: inline-block;
+    padding-bottom: 5px;
+    position: relative;
+    animation: fadeInLeft 1s ease-out;
+  }
 
-## About the Project
+  section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+  }
 
-Our goal with this project is to create a platform where people can share their stable diffusion models (textual inversions, hypernetworks, aesthetic
-gradients, VAEs, and any other crazy stuff people do to customize their AI generations), collaborate with others to improve them, and learn from each
-other's work. The platform allows users to create an account, upload their models, and browse models that have been shared by others. Users can also
-leave comments and feedback on each other's models to facilitate collaboration and knowledge sharing.
+  /* Sequential animation delays for each section */
+  section:nth-of-type(1) { animation-delay: 0.2s; }
+  section:nth-of-type(2) { animation-delay: 0.4s; }
+  section:nth-of-type(3) { animation-delay: 0.6s; }
+  section:nth-of-type(4) { animation-delay: 0.8s; }
 
-### Tech Stack
+  /* Headings */
+  h2 {
+    margin-bottom: 10px;
+  }
 
-We've built this project using a combination of modern web technologies, including Next.js for the frontend, TRPC for the API, and Prisma + Postgres
-for the database. By leveraging these tools, we've been able to create a scalable and maintainable platform that is both user-friendly and powerful.
+  /* Lists */
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
 
-- **DB:** Prisma + Postgres
-- **API:** tRPC
-- **Front-end + Back-end:** NextJS
-- **UI Kit:** [Mantine](https://mantine.dev/)
-- **Storage:** Cloudflare
+  li {
+    margin-bottom: 8px;
+  }
 
-## Getting Started
+  /* Projects */
+  .project {
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 4px solid #00ffff;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  }
 
-<details open>
-<summary>To get a local copy up and running, follow these steps.</summary>
+  .project:hover {
+    background-color: #333;
+    transform: translateX(5px);
+    box-shadow: 0 0 10px #00ffff;
+  }
 
-### Prerequisites
+  .project h3 {
+    font-size: 1.4em;
+    margin-bottom: 8px;
+    color: #ff00ff;
+  }
 
-First, make sure that you have the following installed on your machine:
+  /* Animations */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-- [Docker](https://www.docker.com/) (for running the database and services)
-- If using devcontainers
-    - An IDE that supports them (VS Code with devcontainers extension, Jetbrains, etc.)
-- If running directly
-    - Node.js (version 20 or later)
-        - We recommend you have installed `nvm` in order to set the right node version to run this project
-          ```sh
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-          ```
-    - Make (optional, for easier initial setup)
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
 
-### Installation
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-1. Follow the [Prerequisites](#prerequisites) steps above
-2. Clone the repository to your local machine
-3. Choose one method:
-    - a) Use devcontainers
-      > ⚠️ Important Warning for Windows Users: Either clone this repo onto a WSL volume, or use the "clone repository in named container volume"
-      command. Otherwise, you will see performance issues.
-        - Open the directory up in your IDE of choice
-            - VS Code should prompt you to "Open in container"
-                - If not, you may need to manually run `Dev Containers: Open Folder in Container`
-            - For other IDEs, you may need to open the `.devcontainer/devcontainer.json` file, and click "Create devcontainer and mount sources"
-            - _Note: this may take some time to run initially_
-        - Run `make run` or `npm run dev`
-    - b) Run `make init`
-        - This command will do a few things:
-            - Creates a starter `env` file
-            - Installs npm packages
-            - Spins up docker containers
-            - Runs any additional database migrations
-            - Creates some dummy seed data
-            - Populates metrics and meilisearch
-            - Initializes prisma
-            - Runs the server
-        - If you see an error about an app not being found, make sure `node_modules/.bin` is added to your path:
-            - `export PATH="$PATH:$(realpath node_modules/.bin)"`
-    - Please report any issues with these commands to us on [discord][discord-url]
-4. Edit the `.env.development` file
-    - Most default values are configured to work out of the box, except the S3 upload key and secret. To generate those, navigate to
-      the minio web interface at [http://localhost:9000](http://localhost:9000) with the default username and password `minioadmin`, and then navigate
-      to the "Access Keys" tab. Click "Create Access Key" and copy the generated key and secret into the `.env` file.
-    - Set `WEBHOOK_TOKEN` to a random string of your choice. This will be used to authenticate requests to the webhook endpoint.
-    - Add a random string of your choice to the email properties to allow user registration
-        - `EMAIL_USER`
-        - `EMAIL_PASS`
-        - `EMAIL_FROM` (Valid email format needed)
-5. Finally, visit [http://localhost:3000](http://localhost:3000) to see the website.
+  /* Responsive styles */
+  @media(max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    h2 {
+      font-size: 1.5em;
+    }
+    .project h3 {
+      font-size: 1.2em;
+    }
+  }
+</style>
+</head>
+<body>
 
-_&ast; Note that account creation will run emails through maildev, which can be accessed at [http://localhost:1080](http://localhost:1080)._
+<h1>Resume - Full-Stack Developer</h1>
 
-### Altering your user
+<section>
+  <h2>Personal Details</h2>
+  <p><strong>Name:</strong> @hiroshi@</p>
+  <p><strong>Email:</strong> hiroshi@example.com</p>
+  <p><strong>Phone:</strong> +49 123 4567890</p>
+  <p><strong>LinkedIn:</strong> linkedin.com/in/hiroshi</p>
+  <p><strong>GitHub:</strong> github.com/hiroshi</p>
+  <p><strong>Location:</strong> Berlin, Germany</p>
+</section>
 
-- First, create an account for yourself as you normally would through the UI.
-- You may wish to set yourself up as a moderator. To do so:
-    - Use a database editor (like [DataGrip](https://www.jetbrains.com/datagrip/)) or connect directly to the
-      DB (`PGPASSWORD=postgres psql -h localhost -p 15432 -U postgres civitai`)
-    - Find your user (by email or username), and change `isModerator` to `true`
+<section>
+  <h2>Professional Summary</h2>
+  <p>Motivated full-stack developer with over 5 years of experience building scalable web applications. Skilled in both front-end and back-end technologies, with a focus on user-friendly solutions and teamwork.</p>
+</section>
 
-### Known limitations
+<section>
+  <h2>Technical Skills</h2>
+  <ul>
+    <li>Front-end: HTML5, CSS3, JavaScript, React.js, Angular, Vue.js</li>
+    <li>Back-end: Node.js, Express.js, Django, Ruby on Rails</li>
+    <li>Databases: MySQL, PostgreSQL, MongoDB</li>
+    <li>Tools & Platforms: Docker, Kubernetes, AWS, Git, Jenkins</li>
+    <li>Others: REST APIs, GraphQL, WebSocket, Agile/Scrum</li>
+  </ul>
+</section>
 
-Services that require external input will currently not work locally. These include:
+<section>
+  <h2>Projects</h2>
+  <div class="project">
+    <h3>E-Commerce Platform</h3>
+    <p>Developed a full-featured online store with React, Node.js, and MongoDB, including real-time notifications and payment integration.</p>
+  </div>
+  <div class="project">
+    <h3>Chat Application</h3>
+    <p>Built a real-time chat app using WebSocket and Node.js, with user authentication and message history.</p>
+  </div>
+</section>
 
-- Orchestration (Generation, Training)
-- Signals (Chat, Notifications, other real-time updates)
-- Buzz
+<!-- You can add more sections like Experience, Education, etc. -->
 
-</details>
-
-## Contributing
-
-Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "
-enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the repository to your own GitHub account.
-2. Create a new branch for your changes.
-3. Make your changes to the code.
-4. Commit your changes and push the branch to your forked repository.
-5. Open a pull request on our repository.
-
-If you would like to be more involved, consider joining the **Community Development Team**! For more information on the team as well as how to join,
-see [Calling All Developers: Join Civitai's Community Development Team](https://civitai.com/articles/7782).
-
-### Data Migrations
-
-Over the course of development, you may need to change the structure of the database. To do this:
-
-1. Make your changes to the `schema.prisma` file
-2. Create a folder in the `prisma/migrations folder` named with the convention `YYYYMMDDHHmmss_brief_description_here`
-3. In this folder, create a file called `migration.sql`
-4. In that file, put your sql changes
-    - These are usually simple sql commands like `ALTER TABLE ...`
-5. Run `make run-migrations`
-6. If you are adding/changing a column or table, please try to keep the `gen_seed.ts` file up to date with these changes
-
-## Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
-
-## License
-
-Apache License 2.0 - Please have a look at the [LICENSE](/LICENSE) for more details.
-
-
-[contributors-shield]: https://img.shields.io/github/contributors/civitai/civitai.svg?style=for-the-badge
-
-[contributors-url]: https://github.com/civitai/civitai/graphs/contributors
-
-[forks-shield]: https://img.shields.io/github/forks/civitai/civitai.svg?style=for-the-badge
-
-[forks-url]: https://github.com/civitai/civitai/network/members
-
-[stars-shield]: https://img.shields.io/github/stars/civitai/civitai.svg?style=for-the-badge
-
-[stars-url]: https://github.com/civitai/civitai/stargazers
-
-[issues-shield]: https://img.shields.io/github/issues/civitai/civitai.svg?style=for-the-badge
-
-[issues-url]: https://github.com/civitai/civitai/issues
-
-[license-shield]: https://img.shields.io/github/license/civitai/civitai.svg?style=for-the-badge
-
-[license-url]: https://github.com/civitai/civitai/blob/master/LICENSE
-
-[discord-shield]: https://img.shields.io/discord/1037799583784370196?style=for-the-badge
-
-[discord-url]: https://discord.gg/UwX5wKwm6c
+</body>
+</html>
